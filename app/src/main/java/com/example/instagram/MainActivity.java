@@ -3,8 +3,10 @@ package com.example.instagram;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,8 +19,9 @@ import com.parse.SaveCallback;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView txt1, txt2,txt3;
-    private TextView fromserver ;
+    private TextView txt1, txt2, txt3;
+    private TextView fromserver;
+    private Button transitionbtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,45 +34,64 @@ public class MainActivity extends AppCompatActivity {
 
         fromserver = findViewById(R.id.textView4);
 
-        fromserver.setOnClickListener(new View.OnClickListener() {
+        transitionbtn = findViewById(R.id.button2);
+
+        transitionbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ParseQuery<ParseObject> parseQuery = ParseQuery.getQuery("KickBoxer");
-                parseQuery.getInBackground("FA9DHr4Bkw", new GetCallback<ParseObject>() {
-                    @Override
-                    public void done(ParseObject object, ParseException e) {
-                        if(e==null && object != null){
-                            fromserver.setText(object.get("punch_speed") + " " );
-                        }else{
-                            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+
+                Toast.makeText(MainActivity.this, "Hey it is working", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(MainActivity.this, signup_login.class);
+                startActivity(intent);
             }
         });
 
-
-
     }
+}
 
-    public void HelloWorldIsTapped(View view){
+//
+//        fromserver.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                ParseQuery<ParseObject> parseQuery = ParseQuery.getQuery("KickBoxer");
+//                parseQuery.getInBackground("FA9DHr4Bkw", new GetCallback<ParseObject>() {
+//                    @Override
+//                    public void done(ParseObject object, ParseException e) {
+//                        if(e==null && object != null){
+//                            fromserver.setText(object.get("punch_speed") + " " );
+//                        }else{
+//                            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                });
+//            }
+//        });
 
 
 
 
-        ParseObject kickboxer = new ParseObject("KickBoxer");
-        kickboxer.put("kickspeed",txt1.toString());
-        kickboxer.put("punchpower",txt2.toString());
-        kickboxer.put("kickpower",txt3.toString());
-        kickboxer.saveInBackground(new SaveCallback() {
-            @Override
-            public void done(ParseException e) {
-                Toast.makeText(MainActivity.this,"Bravo",Toast.LENGTH_SHORT).show();
-            }
-        });
+
+//    public void HelloWorldIsTapped(View view){
+//
+//
+//
+//
+//        ParseObject kickboxer = new ParseObject("KickBoxer");
+//        kickboxer.put("kickspeed",txt1.toString());
+//        kickboxer.put("punchpower",txt2.toString());
+//        kickboxer.put("kickpower",txt3.toString());
+//        kickboxer.saveInBackground(new SaveCallback() {
+//            @Override
+//            public void done(ParseException e) {
+//                Toast.makeText(MainActivity.this,"Bravo",Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
 
-    }
 
-    }
+
+
+
+
 
