@@ -1,5 +1,6 @@
 package com.example.instagram;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -54,6 +55,10 @@ public class signup_login extends AppCompatActivity {
                             FancyToast.makeText(signup_login.this,
                                             appuser.get("username") + " has successfully registered",
                                     FancyToast.LENGTH_SHORT,FancyToast.SUCCESS,true).show();
+
+                            Intent intent = new Intent(signup_login.this,WelcomeActivity.class);
+                            startActivity(intent);
+
                         }
                         else {
                             FancyToast.makeText(signup_login.this, e.getMessage(),
@@ -78,12 +83,14 @@ public class signup_login extends AppCompatActivity {
 
                                 if(user != null && e == null){
 
-                                    Toast.makeText(signup_login.this, "Hey this is normal toast ",
-                                            Toast.LENGTH_SHORT).show();
+
 
                                     FancyToast.makeText(signup_login.this,user.get("username")
                                                     + " has logged in successfully",
                                             FancyToast.LENGTH_SHORT,FancyToast.SUCCESS,true).show();
+
+                                    Intent intent = new Intent(signup_login.this,WelcomeActivity.class);
+                                    startActivity(intent);
 
                                 }
                                 else{
