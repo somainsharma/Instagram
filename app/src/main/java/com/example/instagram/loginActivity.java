@@ -67,6 +67,7 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
                                         FancyToast.makeText(loginActivity.this, user.getUsername()
                                                         + " has successfully logged in ", Toast.LENGTH_LONG,
                                                 FancyToast.INFO, true).show();
+                                        transitionofActivity();
 
                                     }else{
 
@@ -99,5 +100,9 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
             e.printStackTrace();
         }
 
+    }
+    public void transitionofActivity(){
+        Intent intent = new Intent(loginActivity.this,SocialMediaActivity.class);
+        startActivity(intent);
     }
 }

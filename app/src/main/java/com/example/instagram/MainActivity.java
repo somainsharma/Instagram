@@ -67,7 +67,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(ParseUser.getCurrentUser() != null){
 
-            ParseUser.getCurrentUser().logOut();
+          //  ParseUser.getCurrentUser().logOut();
+            transitionofActivity();
 
         }
     }
@@ -85,9 +86,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     FancyToast.makeText(MainActivity.this,"Email, username, password is required ",
                             Toast.LENGTH_SHORT, FancyToast.WARNING,
                             true).show();
-                }else {
-
-
+                }
+                else
+                    {
                     final ParseUser appuser = new ParseUser();
                     appuser.setEmail(edtemail.getText().toString());
                     appuser.setUsername(edtusername.getText().toString());
@@ -107,6 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 FancyToast.makeText(MainActivity.this, appuser.get("username") +
                                                 " has signed up successfully", Toast.LENGTH_SHORT, FancyToast.SUCCESS,
                                         true).show();
+                                transitionofActivity();
 
                             } else {
 
@@ -127,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.loginbutton:
 
-                Log.i("TAG","btn login is working now ");
+//                Log.i("TAG","btn login is working now ");
 
 
                 Intent intent = new Intent(MainActivity.this,loginActivity.class);
@@ -147,6 +149,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             e.printStackTrace();
         }
 
+    }
+
+    public void transitionofActivity(){
+        Intent intent = new Intent(MainActivity.this,SocialMediaActivity.class);
+        startActivity(intent);
     }
 }
 
