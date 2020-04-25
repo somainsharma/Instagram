@@ -4,83 +4,113 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F10808"
+    android:onClick="emptylayoutapped"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="168dp"
+        android:layout_height="142dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/mainlogoig" />
+
     <EditText
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
+        android:id="@+id/edtemailsignup"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:autofillHints="Enter you desired value"
-        android:hint="Enter the kickspeed"
-        android:text="TextView"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:hint="Enter you email"
+        android:inputType="textWebEmailAddress"
+        android:textColor="#F8F6F6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-
-
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/edtusernamesignup"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:hint="Enter the kick power"
-        android:text="TextView"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="Enter your username"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/edtemailsignup" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/edtpasswordsignup"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
-        android:hint="Enter the punchpower"
-        android:text="TextView"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="Enter your password"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/edtusernamesignup" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="275dp"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="18dp"
-        android:layout_marginBottom="130dp"
-        android:text="Data from the server"
-        android:textColor="#990000"
-        android:textSize="30sp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <Button
+
+        android:id="@+id/singupbutton"
+        android:layout_width="324dp"
+        android:layout_height="60dp"
+        android:layout_margin="40dp"
+        android:layout_marginTop="36dp"
+        android:background="#2C8F30"
+        android:text="Sign Up"
+        android:textColor="#F1EDED"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtpasswordsignup" />
+
+    <Button
+
+        android:id="@+id/loginbutton"
+        android:layout_width="324dp"
+        android:layout_height="60dp"
+        android:layout_margin="40dp"
+        android:layout_marginBottom="60dp"
+        android:background="#CDDC39"
+        android:text="Log In"
+        android:textColor="#F1EDED"
+        android:textColorHighlight="#CDDC39"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.407"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="98dp"
-        android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
+    <TextView
+        android:layout_width="219dp"
+        android:layout_height="60dp"
+        android:layout_margin="20dp"
+        android:alpha="0.85"
+        android:background="#AA9292"
+        android:padding="10dp"
+        android:text="ALready a user, Tap on Login below"
+        android:textAlignment="center"
+        android:textColor="#F1F1EE"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@id/loginbutton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@id/singupbutton"
+        app:layout_constraintVertical_bias="0.146" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="169dp"
-        android:layout_marginTop="39dp"
-        android:layout_marginEnd="154dp"
-        android:layout_marginBottom="43dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
